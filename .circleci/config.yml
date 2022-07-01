@@ -1,0 +1,18 @@
+version: '2.1'
+
+orbs:
+  android: circleci/android@2.0
+
+workflows:
+  test:
+    jobs:
+      - android/run-ui-tests:
+          executor:
+            name: android/android-machine
+            tag: "2022.06.1"
+          matrix:
+            parameters:
+              system-image:
+                - system-images;android-30;default;x86
+                - system-images;android-29;default;x86
+                - system-images;android-28;default;x86
