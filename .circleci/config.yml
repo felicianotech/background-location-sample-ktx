@@ -11,6 +11,8 @@ workflows:
             name: android/android-machine
             tag: "2022.06.1"
             resource-class: xlarge
+          pre-steps:
+            - run: df -h
           post-steps:
             - run: "sdkmanager --update"
             #- run: mkdir -p ~/.android/avd/test.avd
