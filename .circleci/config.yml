@@ -10,6 +10,7 @@ workflows:
           executor:
             name: android/android-machine
             tag: "2022.06.1"
+            resource-class: xlarge
           pre-steps:
             - run: "sdkmanager --update"
           matrix:
