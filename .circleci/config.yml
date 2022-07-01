@@ -11,9 +11,10 @@ workflows:
             name: android/android-machine
             tag: "2022.06.1"
             resource-class: xlarge
-          pre-steps:
-            - run: "sdkmanager --update"
-            - run: mkdir -p ~/.android/avd/test.avd
+          post-steps:
+            #- run: "sdkmanager --update"
+            #- run: mkdir -p ~/.android/avd/test.avd
+            - run: cat ~/.android/avd/test.avd/config.ini
             - run: echo 'vm.heapSize=64' >> ~/.android/avd/test.avd/config.ini
             - run: echo 'hw.ramSize=1024' >> ~/.android/avd/test.avd/config.ini
           matrix:
